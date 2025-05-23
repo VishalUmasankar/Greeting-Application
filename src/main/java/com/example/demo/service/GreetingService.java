@@ -1,4 +1,3 @@
-
 package com.example.demo.service;
 
 import com.example.demo.model.Greeting;
@@ -16,6 +15,10 @@ public class GreetingService {
     @Autowired
     private GreetingRepository greetingRepository;
 
+    public Greeting save(Greeting greeting) {
+        return greetingRepository.save(greeting);
+    }
+
     public Greeting getGreetingMessage(String type) {
         switch (type.toLowerCase()) {
             case "post":
@@ -27,5 +30,21 @@ public class GreetingService {
             default:
                 return new Greeting(0, "Hello from GET (via Service)");
         }
+    }
+
+    public Greeting getPersonalizedGreeting(String firstName, String lastName) {
+        String message;
+
+        if (firstName != null && lastName != null) {
+            message = "Hello, " + firstName + " " + lastName + "!";
+        } else if (firstName != null) {
+            message = "Hello, " + firstName + "!";
+        } else if (lastName != null) {
+            message = "Hello, Mr/Ms. " + lastName + "!";
+        } else {
+            message = "Hello World";
+        }
+
+        return new Greeting(0, message);
     }
 }

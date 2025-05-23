@@ -47,4 +47,9 @@ public class GreetingService {
 
         return new Greeting(0, message);
     }
+
+    public Greeting findById(long id) {
+        return greetingRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Greeting not found"));
+    }
 }

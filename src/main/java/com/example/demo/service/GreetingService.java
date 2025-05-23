@@ -1,3 +1,4 @@
+
 package com.example.demo.service;
 
 import com.example.demo.model.Greeting;
@@ -18,13 +19,13 @@ public class GreetingService {
     public Greeting getGreetingMessage(String type) {
         switch (type.toLowerCase()) {
             case "post":
-                return new Greeting(0, "Hello from POST");
+                return new Greeting(0, "Hello from POST (via Service)");
             case "put":
-                return new Greeting(0, "Hello from PUT");
+                return new Greeting(0, "Hello from PUT (via Service)");
             case "delete":
-                return new Greeting(0, "Hello from DELETE");
+                return new Greeting(0, "Hello from DELETE (via Service)");
             default:
-                return new Greeting(0, "Hello from GET");
+                return new Greeting(0, "Hello from GET (via Service)");
         }
     }
 }

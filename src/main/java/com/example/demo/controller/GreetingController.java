@@ -35,4 +35,3 @@ public class GreetingController {
         return greetingService.getGreetingMessage("delete");
     }
 }
-
